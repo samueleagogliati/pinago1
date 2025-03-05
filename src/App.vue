@@ -1,5 +1,5 @@
 <template>
-  <BookingPage></BookingPage>
+  <index-page></index-page>
 </template>
 
 <script>

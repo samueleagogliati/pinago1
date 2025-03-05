@@ -1,29 +1,39 @@
 <template>
-  <div class="mt-6 container calendar w-100">
-    <div class="header">
-      <button @click="goToPreviousMonth" class="fs-1 ms-2 calendar-button">
-        &lt;
-      </button>
-      <h2 class="month">{{ currentMonth }}</h2>
-      <button @click="goToNextMonth" class="fs-1 me-2 calendar-button">
-        &gt;
-      </button>
-    </div>
-
-    <div class="days mt-1">
+  <div class="sfondo h-100 d-flex align-items-center justify-content-center">
+    <div class="contents p-5 d-flex align-items-center flex-column text-white">
       <div
-        v-for="(day, index) in days"
-        :key="index"
-        class="day m-1 text-center position-relative"
+        class="header w-100 d-flex align-items-center mb-3 justify-content-between"
       >
         <button
-          class="w-100 calendar-button"
-          @click="openModal(day)"
-          data-bs-toggle="modal"
-          data-bs-target="#dayModal"
+          @click="goToPreviousMonth"
+          class="fs-4 calendar-button text-white"
         >
-          {{ day }}
+          &lt;
         </button>
+        <h2 class="month text-uppercase text-white">
+          {{ currentMonth }}
+        </h2>
+        <button @click="goToNextMonth" class="fs-4 calendar-button text-white">
+          &gt;
+        </button>
+      </div>
+      <div class="mt-6 container calendar p-5">
+        <div class="days">
+          <div
+            v-for="(day, index) in days"
+            :key="index"
+            class="day m-1 text-center position-relative"
+          >
+            <button
+              class="w-100 calendar-button text-white"
+              @click="openModal(day)"
+              data-bs-toggle="modal"
+              data-bs-target="#dayModal"
+            >
+              {{ day }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -95,10 +105,24 @@ export default {
 </script>
 
 <style scoped>
+.sfondo {
+  background: url('/public/img/pexels-krivitskiy-12683776.jpg') no-repeat center
+    center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
 .calendar-button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   background: none;
+}
+
+.month {
+  font-size: 40px;
+  letter-spacing: -3px;
+  transform: scaleX(1.4);
 }
 
 .header {
@@ -114,7 +138,7 @@ export default {
 .day {
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 10%;
+  border-radius: 5%;
 }
 .day:hover {
   background-color: #cccccc84;
