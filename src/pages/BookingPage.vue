@@ -1,6 +1,6 @@
 <template>
   <div class="sfondo h-100 d-flex align-items-center justify-content-center">
-    <div class="contents p-5 d-flex align-items-center flex-column text-white">
+    <div class="contents d-flex align-items-center flex-column text-white">
       <div
         class="header w-100 d-flex align-items-center mb-3 justify-content-between"
       >
@@ -10,19 +10,19 @@
         >
           &lt;
         </button>
-        <h2 class="month text-uppercase text-white">
+        <h1 class="month text-uppercase text-white m-0">
           {{ currentMonth }}
-        </h2>
+        </h1>
         <button @click="goToNextMonth" class="fs-4 calendar-button text-white">
           &gt;
         </button>
       </div>
-      <div class="mt-6 container calendar p-5">
+      <div class="mt-6 calendar p-5 w-100 h-100">
         <div class="days">
           <div
             v-for="(day, index) in days"
             :key="index"
-            class="day m-1 text-center position-relative"
+            class="day m-1 text-center position-relative p-4"
           >
             <button
               class="w-100 calendar-button text-white"
@@ -106,11 +106,13 @@ export default {
 
 <style scoped>
 .sfondo {
-  background: url('/public/img/pexels-krivitskiy-12683776.jpg') no-repeat center
-    center;
+  background: url('/public/img/pexels-krivitskiy-12683776.jpg') no-repeat center;
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .calendar-button {

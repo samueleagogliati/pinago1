@@ -1,16 +1,9 @@
 <template>
-  <index-page></index-page>
+  <router-view></router-view>
 </template>
 
 <script>
-import IndexPage from './pages/IndexPage.vue'
-import BookingPage from './pages/BookingPage.vue'
-export default {
-  components: {
-    IndexPage,
-    BookingPage,
-  },
-}
+export default {}
 </script>
 
 <style></style>
